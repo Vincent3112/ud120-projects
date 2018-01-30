@@ -24,12 +24,12 @@ features_train, features_test, labels_train, labels_test = preprocess()
 from sklearn.naive_bayes import GaussianNB
 
 clf = GaussianNb()
-
 clf.fit(features_train, labels_train)
-
 pred = clf.predict(features_test)
+print (clf.score(features_test, labels_test))
 
-print clf.score(features_test, labels_test)
+from sklearn.metrics import accuracy_score
+print (accuracy_score(pred, labels_test))
 
 
 #########################################################
