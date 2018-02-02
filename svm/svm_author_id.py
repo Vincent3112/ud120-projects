@@ -23,16 +23,16 @@ from sklearn.svm import SVC
 
 clf = SVC(kernel="rbf")
 
-features_train = features_train[:len(features_train)/100] 
-labels_train = labels_train[:len(labels_train)/100]
+features_train = features_train[:len(features_train)/10000] 
+labels_train = labels_train[:len(labels_train)/10000]
 
 t0=time()
 clf.fit(features_train, labels_train)
-print "training time:", round(time()-t0, 1000), "s"
+print "training time:", round(time()-t0, 3), "s"
 
 t1=time()
 pred = clf.predict(features_test)
-print "predicting time:", round(time()-t1, 1000), "s"
+print "predicting time:", round(time()-t1, 3), "s"
 
 from sklearn.metrics import accuracy_score
 acc = accuracy_score(pred, labels_test)
